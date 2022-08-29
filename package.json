@@ -4,7 +4,9 @@
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
-    "start": "remix-serve build"
+    "start": "remix-serve build",
+    "preci": "rm -fr node_modules",
+    "ci": "yarn install --frozen-lockfile"
   },
   "dependencies": {
     "@remix-run/node": "^1.7.0",
