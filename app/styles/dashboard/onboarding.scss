@@ -1,0 +1,175 @@
+#sales-onboarding {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 0;
+  display: grid;
+  row-gap: 48px;
+  .sales-onboarding__title {
+    text-align: center;
+  }
+  .sales-onboarding-wrapper {
+    height: calc(100vh - 162px);
+    min-height: 663px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 98px;
+    .sales-onboarding__left-section {
+      .sales-onboarding__left-section-title {
+        margin-bottom: 32px;
+      }
+      .accounts-assigned-container {
+        margin-top: 32px;
+        display: grid;
+        row-gap: 16px;
+        .accounts-assigned {
+          .account-assigned {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            height: 52px;
+            line-height: 52px;
+            align-items: center;
+            border-top: 1px solid #f1f5f9;
+            &:last-of-type {
+              border-bottom: 1px solid #f1f5f9;
+            }
+            .account-assigned__addglobal {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              .addtoglobal-checkbox {
+                input:checked {
+                  border: none;
+                  background-color: var(--color-ox);
+                }
+                svg {
+                  width: 10px;
+                  height: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .no-accounts-found {
+        max-width: 380px;
+        text-align: center;
+        display: grid;
+        row-gap: 24px;
+        place-items: center;
+        margin: 48px auto 0;
+      }
+    }
+    .sales-onboarding__right-section {
+      margin-top: 96px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .get-recommendations-btn {
+        color: var(--color-ox);
+      }
+    }
+  }
+  .proceed-section {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    background-color: var(--color-white);
+    border-top: 1px solid var(--color-grey-default);
+    height: 88px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .proceed-section__btn {
+      background-color: var(--color-ox);
+      color: var(--color-white);
+    }
+  }
+}
+.select-item {
+  height: 40px;
+  color: var(--color-black);
+  margin-bottom: 4px;
+  &:hover {
+    background-color: var(--color-ox-genesis);
+  }
+}
+.select-item-selected {
+  background-color: var(--color-ox-genesis);
+}
+.input {
+  height: 40px;
+  border: 1px solid #dcdce4;
+  border-radius: 4px;
+  color: var(--color-darkest);
+  transition: border ease-in-out 100ms;
+  &:focus-within {
+    border: 1px solid var(--color-ox);
+  }
+}
+.input-label {
+  color: var(--color-darkest);
+  margin-bottom: 4px;
+}
+
+.drawer-root-paper {
+  padding: 24px 37px;
+  .drawer-title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 34px;
+    color: var(--color-black);
+  }
+  .drawer-content {
+    display: grid;
+    row-gap: 32px;
+    .multi-select-items {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 16px;
+      .multi-select-item-icon {
+        height: 24px;
+        width: 24px;
+        margin-left: 8px;
+        margin-right: 4px;
+      }
+    }
+    .multi-select-item {
+      padding: 12px 0 12px 16px;
+      height: 40px;
+      line-height: 40px;
+      background-color: var(--color-ox-genesis);
+      border: 1px solid var(--color-ox-shy);
+      margin: 0 16px 16px 0;
+      color: var(--color-black);
+    }
+  }
+  .drawer-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid var(--color-grey-default);
+    padding: 0 37px;
+    .cancel-btn {
+      color: var(--color-black);
+      border: 1px solid var(--color-grey-default);
+      margin-right: 16px;
+    }
+    .save-btn {
+      border-color: var(--color-ox);
+      background-color: var(--color-ox);
+      color: var(--color-white);
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  #sales-onboarding {
+    padding: 40px 24px;
+  }
+}

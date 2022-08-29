@@ -2,25 +2,62 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "build": "remix build",
-    "dev": "remix dev",
-    "start": "remix-serve build",
-    "preci": "rm -fr node_modules",
-    "ci": "yarn install --frozen-lockfile"
+    "build": "yarn clean && run-s \"build:*\"",
+    "build:css": "sass app/:app/ --style=compressed --no-source-map",
+    "build:remix": "remix build",
+    "clean": "rimraf ./.cache ./public/build ./public/assets/workers ./app/**/*.css ./app/**/**/*.css ./app/**/**/**/*.css",
+    "dev": "yarn clean && run-p \"dev:*\"",
+    "dev:css": "sass app/:app/ --watch --no-source-map",
+    "dev:remix": "remix dev --port 8000",
+    "prepare": "husky install",
+    "lint": "eslint .",
+    "prettier": "prettier --check",
+    "format": "prettier --write",
+    "lint:fix": "yarn lint --cache --fix"
   },
   "dependencies": {
-    "@remix-run/node": "^1.7.0",
-    "@remix-run/react": "^1.7.0",
-    "@remix-run/serve": "^1.7.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@mantine/core": "^4.2.12",
+    "@mantine/hooks": "^4.2.12",
+    "@mantine/ssr": "^4.2.12",
+    "@remix-run/node": "^1.6.7",
+    "@remix-run/react": "^1.6.7",
+    "@remix-run/vercel": "^1.6.7",
+    "@tanstack/react-query": "^4.1.0",
+    "@vercel/node": "^2.4.4",
+    "dayjs": "^1.11.5",
+    "jwt-decode": "^3.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-intersection-observer": "^9.4.0",
+    "react-table": "^7.8.0",
+    "zustand": "^4.1.0"
   },
   "devDependencies": {
-    "@remix-run/dev": "^1.7.0",
-    "@remix-run/eslint-config": "^1.7.0",
-    "eslint": "^8.20.0"
+    "@remix-run/dev": "^1.6.7",
+    "@remix-run/eslint-config": "^1.6.7",
+    "@remix-run/serve": "^1.6.7",
+    "@types/react": "^17.0.47",
+    "@types/react-dom": "^17.0.17",
+    "@types/react-table": "^7.7.12",
+    "eslint": "^8.20.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "sass": "^1.54.5",
+    "typescript": "^4.7.4"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=14.0",
+    "npm": ">=7.0.0"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": "yarn lint:fix",
+    "*.{js,ts,jsx,tsx,json}": [
+      "yarn format"
+    ]
   }
 }

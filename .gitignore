@@ -1,6 +1,23 @@
 node_modules
 
-/.cache
-/build
-/public/build
+.cache
 .env
+.vercel
+.output
+
+/api
+/api/index.js
+/api/index.js.map
+/build
+/public
+/public/build
+/assets/fonts/
+/assets/images/
+/assets/css/*.css
+/assets/css/reset.min.css
+/app/**/**/**/**/**/*.css
+
+.DS_STORE
+
+.eslintcache
+yarn-error.log

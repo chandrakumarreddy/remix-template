@@ -1,0 +1,268 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+html:focus-within {
+  scroll-behavior: auto;
+}
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+}
+a {
+  text-decoration: none;
+  color: initial;
+}
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:root {
+  --max-width: 1600px;
+  --color-black: #0f172a;
+  --color-white: #fff;
+  --color-light: #32324d;
+  --color-darkest: #475569;
+  --color-ox: #6c5ce7;
+  --color-ox-passion: #432ee0;
+  --color-ox-genesis: #f1f0ff;
+  --color-ox-shy: #a29bfe;
+  --color-ox-pink: #ff7675;
+  --color-success: #10b981;
+  --color-success-lightest: #ecfdf5;
+  --color-warning: #f59e0b;
+  --color-warning-light: #fcd34d;
+  --color-warning-lightest: #fffbeb;
+  --color-error: #e17055;
+  --color-danger: #d02b20;
+  --color-error-lightest: #fff1f2;
+  --color-grey-default: #cbd5e1;
+  --color-grey-dark: #94a3b8;
+  --color-grey-light: #e2e8f0;
+  --color-grey-lighter: #f1f5f9;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--color-black);
+  overscroll-behavior-y: none;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 48px;
+}
+h3 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 34px;
+}
+h4 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+}
+h6 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+}
+.body {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+.body-small {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+}
+.body-regular {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+.body-extra-small {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+/** text alignment */
+.left {
+  text-align: left;
+}
+.center {
+  text-align: center;
+}
+.right {
+  text-align: right;
+}
+
+/** font weights */
+.bold {
+  font-weight: bold;
+}
+.fw-500 {
+  font-weight: 500;
+}
+.fw-600 {
+  font-weight: 600;
+}
+
+/** text colors */
+.text-black {
+  color: var(--color-black);
+}
+.text-darkest {
+  color: var(--color-darkest);
+}
+.text-light {
+  color: var(--color-grey-dark);
+}
+
+@media (max-width: 47.95em) {
+  body {
+    overscroll-behavior-y: auto;
+  }
+}
+
+// progress bar
+.progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  display: flex;
+  z-index: 1001;
+}
+.progress-bar {
+  transition: all 300ms ease;
+  background: var(--color-ox);
+}
+
+// log in header
+header.header {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: var(--color-white);
+  padding: 24px 32px 0 32px;
+  .header_nav {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .header_nav__right {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      > * {
+        margin-right: 24px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+      .action-icon {
+        border: 1px solid var(--color-grey-light);
+        transition: all linear 150ms;
+        border-radius: 8px;
+        cursor: pointer;
+        &:hover {
+          border: 1px solid var(--color-ox);
+          position: relative;
+          top: -1;
+          left: -1;
+        }
+        &.action-icon-user {
+          height: 40px;
+          padding: 5px 5px 5px 10px;
+          border-radius: 8px;
+          background-color: var(--color-white);
+          display: flex;
+          align-items: center;
+          .avatar {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 12px;
+            border-radius: 50%;
+            background-color: var(--color-ox);
+            color: var(--color-white);
+          }
+        }
+      }
+    }
+  }
+}
+.navbar-menu-body {
+  padding: 12px;
+  display: grid;
+  row-gap: 4px;
+}
+.navbar-menu-item {
+  padding: 4px 8px;
+}
+
+// scoll bar
+::-webkit-scrollbar {
+  width: 5px;
+}

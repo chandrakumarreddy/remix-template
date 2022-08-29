@@ -1,0 +1,290 @@
+#admin-dashboard {
+  position: sticky;
+  top: 64px;
+  z-index: 2;
+  background-color: var(--color-white);
+  &.admin-dashboard__filters {
+    display: grid;
+    row-gap: 24px;
+    padding: 8px 32px 16px;
+    .admin-dashboard__header {
+      position: sticky;
+      top: 64px;
+      display: flex;
+      justify-content: space-between;
+
+      .admin-dashboard__header-left {
+        flex: 1;
+        display: flex;
+        > * {
+          margin-right: 16px;
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+        .input {
+          border: 1px solid #dcdce4;
+          border-radius: 4px;
+          color: var(--color-darkest);
+          transition: border ease-in-out 100ms;
+          &:focus-within {
+            border: 1px solid var(--color-ox);
+          }
+        }
+        .admin-dashboard__header-input {
+          width: 335px;
+          height: 40px;
+        }
+        .admin-dashboard__header-select {
+          height: 40px;
+          width: 166px;
+          &.selected {
+            background-color: var(--color-ox-genesis);
+            border-color: var(--color-ox-shy);
+          }
+        }
+        .multi-select-root {
+          height: 40px;
+          .region-searchInput {
+            width: 46px;
+          }
+          .region-dropdown {
+            width: fit-content;
+          }
+          .invitation-input {
+            width: 106px;
+          }
+        }
+        .clear-btn {
+          border-color: var(--color-grey-default);
+          color: var(--color-darkest);
+          height: 40px;
+        }
+      }
+    }
+  }
+}
+.admin-dashboard__remove-accounts {
+  animation: slideUp 300ms ease-in-out;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  background-color: var(--color-ox);
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  .admin-dashboard__remove-accounts-left {
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    .admin-dashboard__remove-accounts-left_remove-btn {
+      background-color: var(--color-white);
+      color: var(--color-darkest);
+      margin-left: 12px;
+    }
+  }
+  .admin-dashboard__remove-accounts-left_deselect-btn {
+    border: 1px solid var(--color-grey-default);
+    background-color: transparent;
+  }
+}
+
+.drawer-root-paper {
+  padding: 24px 37px;
+  .drawer-title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 34px;
+    color: var(--color-black);
+  }
+}
+.steps-container {
+  margin: 16px 0 40px;
+  width: 396px;
+}
+
+.select-item {
+  height: 40px;
+  color: var(--color-black);
+  margin-bottom: 4px;
+  &:hover {
+    background-color: var(--color-ox-genesis);
+  }
+}
+.select-item-selected {
+  background-color: var(--color-ox-genesis);
+}
+.step-icon {
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
+  border: none;
+  background-color: var(--color-grey-default);
+  color: var(--color-white);
+}
+.seperator-active {
+  background-color: var(--color-ox);
+}
+.step-progress,
+.step-completed {
+  .step-icon {
+    background-color: var(--color-ox);
+  }
+}
+.step-label {
+  color: var(--color-grey-dark);
+}
+.step-progress {
+  .step-label {
+    color: var(--color-black);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.stepper-root {
+  .stepper-content {
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+    .input {
+      border: 1px solid #dcdce4;
+      border-radius: 4px;
+      color: var(--color-darkest);
+      transition: border ease-in-out 100ms;
+      height: 44px;
+      &:focus-within {
+        border: 1px solid var(--color-ox);
+      }
+    }
+    .basic-details-container {
+      flex: 1;
+      .basic-details {
+        display: grid;
+        row-gap: 32px;
+      }
+    }
+    .basic-details-footer,
+    .account-details-footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      background-color: var(--color-white);
+      height: 88px;
+      line-height: 88px;
+      padding: 0 37px;
+      text-align: right;
+      border-top: 1px solid #cbd5e1;
+      .cancel {
+        margin-right: 16px;
+        border-color: var(--color-grey-default);
+        color: var(--color-black);
+      }
+      .next {
+        color: var(--color-white);
+        background-color: var(--color-ox);
+        border: none;
+      }
+    }
+    .account-details-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .basic-details-regions-items {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 16px;
+      .basic-details-regions-item-icon {
+        height: 24px;
+        width: 24px;
+        margin-left: 8px;
+        margin-right: 4px;
+      }
+    }
+    .basic-details-regions-item {
+      padding: 12px 0 12px 16px;
+      height: 40px;
+      line-height: 40px;
+      background-color: var(--color-ox-genesis);
+      border: 1px solid var(--color-ox-shy);
+      margin: 0 16px 16px 0;
+      color: var(--color-black);
+    }
+    .no-accounts-found {
+      max-width: 380px;
+      text-align: center;
+      display: grid;
+      row-gap: 24px;
+      place-items: center;
+      margin: 132px auto 0;
+    }
+  }
+}
+
+.accounts-assigned-container {
+  margin-top: 32px;
+  display: grid;
+  row-gap: 16px;
+  .accounts-assigned {
+    .account-assigned {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      height: 52px;
+      line-height: 52px;
+      align-items: center;
+      border-top: 1px solid #f1f5f9;
+      &:last-of-type {
+        border-bottom: 1px solid #f1f5f9;
+      }
+      .account-assigned__addglobal {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .addtoglobal-checkbox {
+          input:checked {
+            border: none;
+            background-color: var(--color-ox);
+          }
+          svg {
+            width: 10px;
+            height: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.add-btn {
+  width: 198px;
+  height: 40px;
+  background: var(--color-ox);
+  transition: background 300ms ease-in-out;
+  &:hover,
+  &:active {
+    background: var(--color-ox-passion);
+  }
+}
+
+#admin-dashboard-no-accounts {
+  height: calc(100vh - 64px);
+  display: grid;
+  place-content: center;
+  place-items: center;
+  row-gap: 32px;
+}

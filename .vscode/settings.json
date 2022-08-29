@@ -1,0 +1,22 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "javascript.preferences.quoteStyle": "single",
+  "search.exclude": {
+    "**/build/": true,
+    "**/public/build/": true,
+    "**/.git": true,
+    "**/node_modules": true,
+    "**/.cache": true,
+    "**/.eslintcache": true,
+    "**/.DS_Store": true
+  },
+  "files.exclude": {
+    "build/": true,
+    "api": true,
+    "app/**/**/**/**/**/*.css": true
+  }
+}
