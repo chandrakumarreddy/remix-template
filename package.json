@@ -10,6 +10,7 @@
     "dev:css": "sass app/:app/ --watch --no-source-map",
     "dev:remix": "remix dev --port 8000",
     "prepare": "husky install",
+    "start": "remix-serve build",
     "lint": "eslint .",
     "prettier": "prettier --check",
     "format": "prettier --write",
